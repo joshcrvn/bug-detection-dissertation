@@ -1,0 +1,1 @@
+After the code was complete I decided to run a couple more tests comparing the metrics to one another as well as seeing the training loss on both versions of the data.

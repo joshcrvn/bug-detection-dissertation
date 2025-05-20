@@ -1,0 +1,42 @@
+data:
+  raw:
+    train_path: "./data/raw/train_data.csv"
+    test_path: "./data/raw/test_data.csv"
+  cleaned:
+    train_path: "./data/cleaned/train_data_cleaned.csv"
+    test_path: "./data/cleaned/test_data_cleaned.csv"
+  preprocessing:
+    min_lines: 3
+    max_lines: 50
+    min_tokens: 20
+    max_tokens: 512
+
+model:
+  pretrained_model: "microsoft/codebert-base"
+  num_labels: 2
+  max_length: 512
+  output_dirs:
+    raw: "./models/bug_detection_model_raw"
+    cleaned: "./models/bug_detection_model_cleaned"
+
+training:
+  learning_rate: 2e-5
+  batch_size: 8
+  epochs: 1.5
+  weight_decay: 0.01
+  warmup_steps: 500
+  logging_steps: 50
+  seed: 42
+  output_dirs:
+    raw: "./results/raw"
+    cleaned: "./results/cleaned"
+  logging_dir: "./logs"
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+  output_dir: "./evaluation"
+  visualization_dir: "./visualizations" 
